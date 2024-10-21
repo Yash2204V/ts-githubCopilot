@@ -1,6 +1,8 @@
-# YASH2204V - Github with TypeScript
+# YASH2204V - Github Copilot with TypeScript
 
 I'll guide you through the step-by-step process to properly set up a TypeScript project:
+OR
+**SIMPLE CLONE THE REPO:) much easier approach.**
 
 1. **First, create your project structure**:
 ```
