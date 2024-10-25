@@ -1,0 +1,62 @@
+# How to Install GitHub Copilot?
+- What is the extension needed to use GitHub Copilot in Vs Code?
+    - GitHub Copilot
+    - GitHub Copilot Chat
+- How you can use it?
+    - First, it will auto-complete your code.
+    - Secondly, you can ask your doubts.
+        - Chat - Text
+        - Chat - Voice (extended)
+
+# How to use GitHub Copilot with TypeScript in Vs Code?
+- I come up with some example and you don't have to worry about whether you know typescript or not.
+- I will give you a simple, basic example with some difference regarding typescript & javascript.
+- Important: You will know how to tackle doubt, error!!
+
+- Questions (ONLY 3):
+  - title: Type-Safe Parameters and Return Type
+    description: |
+      Write a function called `addNumbers` that takes two parameters, `a` and `b`, and returns their sum.
+      Use TypeScript to enforce that `a` and `b` must be numbers, and the function returns a number.
+    javascript_limitation: |
+      In JavaScript, there’s no way to enforce parameter types. If `addNumbers(2, "3")` is called, it will concatenate `"3"` as a string instead of adding the numbers, potentially leading to unexpected behavior.
+    typescript_advantage: |
+      TypeScript allows you to declare parameter and return types (`number` in this case). This prevents unintended values and catches mistakes at compile time.
+    typescript_example: |
+      function addNumbers(a: number, b: number): number {
+          return a + b;
+      }
+
+  - title: Enforcing Object Structure with Interfaces
+    description: |
+      Create an object called `person` with properties `name` (string) and `age` (number).
+      Use TypeScript to define an interface `Person` to specify the structure and types of this object.
+    javascript_limitation: |
+      In JavaScript, there’s no guarantee that an object has the required properties. A typo or missing property won’t throw an error until runtime, which can lead to unexpected issues.
+    typescript_advantage: |
+      TypeScript interfaces define the expected structure of an object. If the `person` object is missing a property or has incorrect types, TypeScript will throw an error, improving code reliability.
+    typescript_example: |
+      interface Person {
+          name: string;
+          age: number;
+      }
+
+      const person: Person = { name: "Alice", age: 25 }; // Type-safe
+
+  - title: Using Generics for Type Safety in Functions
+    description: |
+      Write a function `getFirstElement` that takes an array of any type and returns the first element. Use TypeScript generics to ensure the function
+      works with any type of array (e.g., string[], number[], etc.), while maintaining type safety.
+    javascript_limitation: |
+      In JavaScript, handling multiple data types within functions can lead to unexpected errors, as there is no way to guarantee consistent types
+      in an array without extra checks.
+    typescript_advantage: |
+      TypeScript generics allow you to create functions that work with any type, while ensuring that the return type matches the input array's type.
+      This provides flexibility and helps prevent type errors.
+    typescript_example: |
+      function getFirstElement<T>(array: T[]): T | undefined {
+          return array.length > 0 ? array[0] : undefined;
+      }
+
+      const firstNumber = getFirstElement([1, 2, 3]); // Type-safe, returns number
+      const firstString = getFirstElement(["a", "b", "c"]); // Type-safe, returns string
