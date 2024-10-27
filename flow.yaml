@@ -43,20 +43,15 @@
 
       const person: Person = { name: "Alice", age: 25 }; // Type-safe
 
-  - title: Using Generics for Type Safety in Functions
-    description: |
-      Write a function `getFirstElement` that takes an array of any type and returns the first element. Use TypeScript generics to ensure the function
-      works with any type of array (e.g., string[], number[], etc.), while maintaining type safety.
-    javascript_limitation: |
-      In JavaScript, handling multiple data types within functions can lead to unexpected errors, as there is no way to guarantee consistent types
-      in an array without extra checks.
-    typescript_advantage: |
-      TypeScript generics allow you to create functions that work with any type, while ensuring that the return type matches the input array's type.
-      This provides flexibility and helps prevent type errors.
-    typescript_example: |
-      function getFirstElement<T>(array: T[]): T | undefined {
-          return array.length > 0 ? array[0] : undefined;
-      }
 
-      const firstNumber = getFirstElement([1, 2, 3]); // Type-safe, returns number
-      const firstString = getFirstElement(["a", "b", "c"]); // Type-safe, returns string
+- title: Enforcing Array Types
+  description: |
+    Create an array called `scores` that should only contain numbers. Use TypeScript to ensure all elements of `scores` are numbers.
+  javascript_limitation: |
+    In JavaScript, you can have mixed types in an array, so accidentally adding a string to a list of numbers won’t cause an error until you try to use it as a number.
+  typescript_advantage: |
+    TypeScript can enforce that an array only contains specific types (like `number[]` for a list of numbers). This prevents accidentally mixing types, making the code safer and more predictable.
+  typescript_example: |
+    const scores: number[] = [85, 90, 78]; // Type-safe, only numbers allowed
+
+    scores.push("95"); // Error: Argument of type 'string' is not assignable to parameter of type 'number'.
